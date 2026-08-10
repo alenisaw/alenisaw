@@ -104,6 +104,6 @@
 <text x="548" y="581" class="key">. Hugging Face: ......</text>
 <text x="744" y="581" class="value">huggingface.co/alenisaw</text>
 <text x="548" y="615" class="section">- GitHub Stats -------------------------------------------------</text>
-<text x="548" y="648" class="value">. Repos: <tspan id="repo_data">11</tspan>  |  Stars: <tspan id="star_data">17</tspan>  |  Followers: <tspan id="follower_data">12</tspan></text>
+<text x="548" y="648" class="value">. Repos: <tspan id="repo_data">12</tspan>  |  Stars: <tspan id="star_data">17</tspan>  |  Followers: <tspan id="follower_data">12</tspan></text>
 <text x="548" y="672" class="value">. Following: <tspan id="following_data">11</tspan>  |  Public gists: <tspan id="gist_data">0</tspan></text>
 </svg>
