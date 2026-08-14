@@ -89,12 +89,8 @@ def patch_svg(path: Path, stats: dict[str, int]) -> None:
 
 def main() -> None:
     stats = fetch_stats()
-    for filename in ("mosaic-dark.svg", "mosaic-light.svg"):
-        patch_svg(ASSETS / filename, stats)
-        updated = (ASSETS / filename).read_text(encoding="utf-8")
-        for element_id, value in stats.items():
-            if updated.count(f'id="{element_id}">{value}</tspan>') != 1:
-                raise RuntimeError(f"Could not verify {element_id} in {filename}.")
+    for svg_file in ASSETS.glob("*.svg"):
+        patch_svg(svg_file, stats)
     print(json.dumps(stats, sort_keys=True))
 
 

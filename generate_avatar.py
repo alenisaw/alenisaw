@@ -7,27 +7,56 @@ import argparse
 import re
 from pathlib import Path
 
-from PIL import Image, ImageEnhance, ImageOps
+from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 
 
 ROOT = Path(__file__).resolve().parent
 ASSETS = ROOT / "assets"
-WIDTH, HEIGHT = 108, 67
-FONT_SIZE, LINE_HEIGHT, TEXT_LENGTH = 11.0, 8.25, 440.0
+
+# High-resolution spatial sampling grid constants (176 x 100 = 17,600 cells)
+WIDTH, HEIGHT = 176, 100
+FONT_SIZE, LINE_HEIGHT, TEXT_LENGTH = 8.0, 6.45, 584.0
+START_X, START_Y = 36.0, 34.0
 
 
 def render_avatar(source: Path) -> str:
     image = ImageOps.exif_transpose(Image.open(source).convert("RGB"))
-    image = ImageEnhance.Color(image).enhance(1.18)
-    image = ImageEnhance.Contrast(image).enhance(1.08)
+
+    # Stage 1: Fit source image strictly to the PHYSICAL visual SVG aspect ratio (584 / (100 * 6.45))
+    physical_aspect = TEXT_LENGTH / (HEIGHT * LINE_HEIGHT)
+    preview_height = 1000
+    preview_width = round(preview_height * physical_aspect)
+
+    image = ImageEnhance.Color(image).enhance(1.15)
+    image = ImageEnhance.Contrast(image).enhance(1.06)
+
+    # Crop to physical portrait ratio preserving exact current framing and zoom
+    image = ImageOps.fit(
+        image,
+        (preview_width, preview_height),
+        method=Image.Resampling.LANCZOS,
+        centering=(0.5, 0.48),
+    )
+
+    # Stage 2: Sharpening pre-filter to retain hood/clothing/facial detail
+    image = image.filter(
+        ImageFilter.UnsharpMask(
+            radius=1.0,
+            percent=110,
+            threshold=2,
+        )
+    )
+
+    # Stage 3: Resample aspect-correct image into high-density grid (176 x 100)
     image = image.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS)
-    image = image.quantize(colors=64, method=Image.Quantize.MEDIANCUT).convert("RGB")
+
+    # Stage 4: High color resolution quantization (128 colors)
+    image = image.quantize(colors=128, method=Image.Quantize.MEDIANCUT).convert("RGB")
 
     lines: list[str] = []
-    start_x, start_y = 38.0, 90.0
     for row in range(HEIGHT):
         parts = [
-            f'<text x="{start_x}" y="{start_y + row * LINE_HEIGHT:.2f}" '
+            f'<text x="{START_X}" y="{START_Y + row * LINE_HEIGHT:.2f}" '
             f'class="ascii" style="font-size:{FONT_SIZE}px" '
             f'textLength="{TEXT_LENGTH}" lengthAdjust="spacingAndGlyphs" '
             'xml:space="preserve">'
@@ -42,10 +71,13 @@ def render_avatar(source: Path) -> str:
 
 def replace_avatar(svg: Path, avatar: str) -> None:
     content = svg.read_text(encoding="utf-8")
-    pattern = r'<text x="[^"]+" y="[^"]+" class="ascii".*?</text>\s*(?=<text x="548" y="50")'
-    updated, replacements = re.subn(pattern, avatar + "\n", content, count=1, flags=re.DOTALL)
+    pattern = r"<!-- AVATAR_START -->.*?<!-- AVATAR_END -->"
+    replacement = f"<!-- AVATAR_START -->\n{avatar}\n<!-- AVATAR_END -->"
+    updated, replacements = re.subn(pattern, replacement, content, count=1, flags=re.DOTALL)
     if replacements != 1:
-        raise RuntimeError(f"Could not find the avatar block in {svg}.")
+        raise RuntimeError(
+            f"Could not find <!-- AVATAR_START --> ... <!-- AVATAR_END --> markers in {svg}."
+        )
     svg.write_text(updated, encoding="utf-8", newline="\n")
 
 
