@@ -144,6 +144,6 @@
 
 <text x="680" y="604" class="section">GitHub Performance &amp; Activity</text>
 <line x1="945" y1="599" x2="1200" y2="599" stroke="#8c959f" stroke-width="1" opacity="0.55"/>
-<text x="680" y="632" class="value">. Stars: <tspan id="star_data">41</tspan>  |  Repos: <tspan id="repo_data">15</tspan>  |  Followers: <tspan id="follower_data">13</tspan></text>
+<text x="680" y="632" class="value">. Stars: <tspan id="star_data">43</tspan>  |  Repos: <tspan id="repo_data">15</tspan>  |  Followers: <tspan id="follower_data">13</tspan></text>
 <text x="680" y="654" class="value">. Following: <tspan id="following_data">12</tspan>  |  Public Gists: <tspan id="gist_data">0</tspan></text>
 </svg>
