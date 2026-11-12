@@ -118,32 +118,26 @@
 <text x="680" y="174" class="key">. Role: ..............</text>
 <text x="850" y="174" class="value">AI Engineer</text>
 <text x="680" y="200" class="key">. Focus &amp; Research: ..</text>
-<text x="850" y="200" class="value">Computer Vision &amp; Computing Optimization</text>
+<text x="850" y="200" class="value">XAI &amp; Quantum ML</text>
 <text x="680" y="226" class="key">. Location: ..........</text>
 <text x="850" y="226" class="value">Astana, Kazakhstan</text>
 
-<text x="680" y="260" class="section">Education</text>
-<line x1="765" y1="255" x2="1200" y2="255" stroke="#4f5863" stroke-width="1" opacity="0.55"/>
-<text x="680" y="284" class="project">. Master's: Master of Science in Applied Artificial Intelligence</text>
-<text x="680" y="304" class="muted">  Astana IT University  |  2026 – 2028</text>
-<text x="680" y="328" class="project">. Bachelor's: Bachelor of Science in Big Data Analysis</text>
-<text x="680" y="348" class="muted">  Astana IT University  |  2023 – 2026</text>
+<text x="680" y="268" class="section">Education</text>
+<line x1="765" y1="263" x2="1200" y2="263" stroke="#4f5863" stroke-width="1" opacity="0.55"/>
+<text x="680" y="294" class="project">. Master's: Master of Science in Applied Artificial Intelligence</text>
+<text x="680" y="314" class="muted">  Astana IT University  |  2026 – 2028</text>
+<text x="680" y="340" class="project">. Bachelor's: Bachelor of Science in Big Data Analysis</text>
+<text x="680" y="360" class="muted">  Astana IT University  |  2023 – 2026</text>
 
-<text x="680" y="382" class="section">Main Projects</text>
-<line x1="800" y1="377" x2="1200" y2="377" stroke="#4f5863" stroke-width="1" opacity="0.55"/>
-<text x="680" y="406" class="project">. 01 / turkicocr-svtrv2-b</text>
-<text x="680" y="424" class="muted">  Line-grounded recognizer for Kazakh and Kyrgyz OCR</text>
-<text x="680" y="448" class="project">. 02 / turkic-docgen</text>
-<text x="680" y="466" class="muted">  Synthetic document generation for low-resource OCR</text>
+<text x="680" y="410" class="section">Contact</text>
+<line x1="745" y1="405" x2="1200" y2="405" stroke="#4f5863" stroke-width="1" opacity="0.55"/>
+<text x="680" y="438" class="key">. Email: <tspan class="value">alenkz20001@gmail.com</tspan>   |  Telegram: <tspan class="value">@alenisaw</tspan></text>
+<text x="680" y="464" class="key">. GitHub: <tspan class="value">github.com/alenisaw</tspan></text>
+<text x="680" y="490" class="key">. HuggingFace: <tspan class="value">huggingface.co/alenisaw</tspan></text>
+<text x="680" y="516" class="key">. LinkedIn: <tspan class="value">linkedin.com/in/alen-issayev</tspan></text>
 
-<text x="680" y="500" class="section">Contact</text>
-<line x1="745" y1="495" x2="1200" y2="495" stroke="#4f5863" stroke-width="1" opacity="0.55"/>
-<text x="680" y="524" class="key">. Email: <tspan class="value">alenkz20001@gmail.com</tspan>   |  Telegram: <tspan class="value">@alenisaw</tspan></text>
-<text x="680" y="546" class="key">. GitHub: <tspan class="value">github.com/alenisaw</tspan></text>
-<text x="680" y="568" class="key">. HuggingFace: <tspan class="value">huggingface.co/alenisaw</tspan></text>
-
-<text x="680" y="604" class="section">GitHub Performance &amp; Activity</text>
-<line x1="945" y1="599" x2="1200" y2="599" stroke="#4f5863" stroke-width="1" opacity="0.55"/>
-<text x="680" y="632" class="value">. Stars: <tspan id="star_data">57</tspan>  |  Repos: <tspan id="repo_data">18</tspan>  |  Followers: <tspan id="follower_data">19</tspan></text>
-<text x="680" y="654" class="value">. Following: <tspan id="following_data">15</tspan>  |  Public Gists: <tspan id="gist_data">0</tspan></text>
+<text x="680" y="566" class="section">GitHub Performance &amp; Activity</text>
+<line x1="945" y1="561" x2="1200" y2="561" stroke="#4f5863" stroke-width="1" opacity="0.55"/>
+<text x="680" y="598" class="value">. Stars: <tspan id="star_data">57</tspan>  |  Repos: <tspan id="repo_data">18</tspan>  |  Followers: <tspan id="follower_data">19</tspan></text>
+<text x="680" y="624" class="value">. Following: <tspan id="following_data">15</tspan>  |  Public Gists: <tspan id="gist_data">0</tspan></text>
 </svg>
